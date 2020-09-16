@@ -27,14 +27,5 @@ client.onmessage = function(e) {
 	const textEncoding = require('text-encoding')
 	const td = new textEncoding.TextDecoder("utf-8")
     const string = td.decode(e.data)
-
-
 	console.log(string)
-    if (typeof e.data === 'string') {
-        console.log("Received: '" + e.data + "'");
-    }
-
-    if (typeof e.data === 'ArrayBuffer') {
-        console.log("Received: '" + e.data + "'");
-    }
 };

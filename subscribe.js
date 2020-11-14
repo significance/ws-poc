@@ -1,6 +1,6 @@
 var W3CWebSocket = require('websocket').w3cwebsocket;
  
-var client = new W3CWebSocket('ws://localhost:8082/pss/subscribe/testtopic');
+var client = new W3CWebSocket('ws://localhost:8083/pss/subscribe/test-topic');
  
 client.onerror = function() {
     console.log('Connection Error');
@@ -24,8 +24,8 @@ client.onclose = function() {
 };
  
 client.onmessage = function(e) {
-	const textEncoding = require('text-encoding')
-	const td = new textEncoding.TextDecoder("utf-8")
+    const textEncoding = require('text-encoding')
+    const td = new textEncoding.TextDecoder("utf-8")
     const string = td.decode(e.data)
-	console.log(string)
+    console.log(string)
 };

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PSS Example</title>
+	<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div id="app">
+	<h1>PSS Example</h1>
+	<h4>Powered By Swarm</h4>
+
+	<!-- input -->
+	<div class="send-message">
+		<h3>Send Message</h3>
+		<div>
+			<label>overlayAddress</label><br/>
+			<input v-model="overlayAddress"></input><br/>
+			<label>publicKey</label><br/>
+			<input v-model="publicKey"></input><br/>
+			<label>message</label><br/>
+			<textarea v-model="messageText"></textarea><br/>
+			<button v-on:click="sendMessage">Send</button>
+		</div>
+	</div>
+
+	<!-- output -->
+	<div class="show-paste">
+		<h3>Receive</h3>
+		<div>
+		<ul id="receieved-messages">
+			<li v-for="message in messages" :key="messages.message">
+				{{ message.message }}
+			</li>
+		</ul>
+		</div>
+	</div>
+
+
+	<audio id="bzzAudio">
+	  <source src="assets/bzz.mp3" type="audio/mpeg">
+	  Your browser does not support the audio element.
+	</audio>
+</div>
+</body>
+<script src="./assets/axios.min.js"></script>
+<script src="./assets/vue.js"></script>
+<script src="./assets/index.js"></script>
+</html>

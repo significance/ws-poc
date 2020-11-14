@@ -1,0 +1,13 @@
+#app{
+	transition: opacity 1s;
+	opacity: 1;
+}
+
+.loading{
+	opacity: 0 !important;
+}
+
+textarea{
+	width: 400px;
+	height: 400px;
+}

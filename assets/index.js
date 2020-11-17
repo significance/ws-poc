@@ -1,5 +1,7 @@
 const gatewayHTTP = 'http://localhost:8083';
 const gatewayWS = 'ws://localhost:8082';
+const ethScanAPIkey = ''
+
 const topic = 'ws-poc';
 
 let listen = (openCallback, messageCallback) => {
@@ -37,9 +39,27 @@ let init = async () => {
             messages: [
                 {message: 'Welcome'},
             ],
-            overlayAddress: "918c",
-            publicKey: "021fbb24ce0fb6d59d7dbbc779cd2851cbb43879b82ba7b6c6ef39e2d51f73ddf3",
+            ethAddress: '',
+            publicKey: '',
             messageText: "Hello Swarm",
+        },
+        computed: {
+            overlayAddress: function () {
+                if (isEthAddress(this.ethAddress))
+                    return overlayAddressFromEthereumAddress(this.ethAddress, "0x0100000000000000")
+                return ""
+            },
+            ethAddressError: function () {
+                if (!isEthAddress(this.ethAddress)) return "Invalid Ethereum address"
+                return ""
+            }
+        },
+        watch: {
+            ethAddress: async function () {
+                if (isEthAddress(this.ethAddress)) 
+                    this.publicKey = await ethAddressToPubKey(ethScanAPIkey, this.ethAddress)
+                else this.publicKey = ''
+            }
         },
         methods: {
             sendMessage: async function(){

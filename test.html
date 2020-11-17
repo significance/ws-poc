@@ -2,6 +2,9 @@
 <html>
 <head>
 	<title></title>
+	<script src="./assets/lib/axios.min.js"></script>
+	<script src="./assets/lib/sha3.min.js"></script>
+	<script src="./assets/utils.js"></script>
 	<script type="text/javascript">
 		let listen2 = (openCallback, messageCallback) => {
 			// Create WebSocket connection.
@@ -24,6 +27,25 @@
 				console.log(await event.data.text());
 			});
 		}
+
+
+
+		const apiKey = ''
+		const address = '0xb27e3af4eb6e40007b5f74a635b9d5fb6c4887ec'
+		const beeNetworkId = `0x0100000000000000`;
+
+		const expectedOverlayAddress = "8b299543cdbb51dd08bba341d3ed00c2724ee0c93ab92fa3519781d00ad441e7"
+		const expectedPublicKey = "0x68e767cb53c3f4c4a15d33daf23c0d109ecc14afd4e4b24ee6a3acb62fe2783c5ae76acf3176111c5ec6582d43d4c2c09a25317d75ce2f6c7eb94fd5fe50f38d"
+
+		async function main() {
+			const publicKey = await ethAddressToPubKey(apiKey, address)
+			const overlayAddress = overlayAddressFromEthereumAddress(address, beeNetworkId)
+			
+			console.log('Public Key: ', publicKey === expectedPublicKey ? 'OK' : `FAILED expected ${expectedPublicKey} received ${publicKey}`)
+			console.log('Overlay address: ', overlayAddress === expectedOverlayAddress ? 'OK' : `FAILED expected ${expectedOverlayAddress} received ${overlayAddress}`)
+		}
+
+		main()
 	</script>
 </head>
 <body onload="listen2()">

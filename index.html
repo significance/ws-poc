@@ -13,13 +13,17 @@
 	<div class="send-message">
 		<h3>Send Message</h3>
 		<div>
-			<label>overlayAddress</label><br/>
-			<input v-model="overlayAddress"></input><br/>
-			<label>publicKey</label><br/>
-			<input v-model="publicKey"></input><br/>
-			<label>message</label><br/>
+			<label>Ethereum Address</label><br/>
+			<input v-model="ethAddress"></input><br/>
+			
+			<label v-if="ethAddressError">error: </label><span>{{ ethAddressError }}</span><br/>
+			<label v-if="overlayAddress">overlayAddress: </label><span>{{ overlayAddress }}</span><br/>
+			<label v-if="overlayAddress">publicKey: </label><span>{{ publicKey }}</span><br/>
+			<br />
+
+			<label>Message</label><br/>
 			<textarea v-model="messageText"></textarea><br/>
-			<button v-on:click="sendMessage">Send</button>
+			<button v-on:click="sendMessage">Send</button><br/>
 		</div>
 	</div>
 
@@ -42,7 +46,9 @@
 	</audio>
 </div>
 </body>
-<script src="./assets/axios.min.js"></script>
-<script src="./assets/vue.js"></script>
+<script src="./assets/lib/axios.min.js"></script>
+<script src="./assets/lib/vue.js"></script>
+<script src="./assets/lib/sha3.min.js"></script>
+<script src="./assets/utils.js"></script>
 <script src="./assets/index.js"></script>
 </html>

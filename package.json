@@ -4,15 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "node-example": "node subscribe.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "text-encoding": "^0.7.0",
-    "vue": "^2.6.12",
-    "websocket": "^1.0.32"
-  }
+  "dependencies": {}
 }

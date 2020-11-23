@@ -1,48 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>PSS Example</title>
+	<title>PSS Messaging Demo</title>
 	<link rel="stylesheet" href="assets/app.css">
 </head>
 <body>
 <div id="app">
-	<h1>PSS Example</h1>
-	<h4>Powered By Swarm</h4>
+	<h1>PSS Messaging Demo</h1>
 
 	<!-- input -->
 	<div class="send-message">
-		<h3>Send Message</h3>
+		<h2>Send Message</h2>
 		<div>
-			<label>overlayAddress</label><br/>
-			<input v-model="overlayAddress"></input><br/>
-			<label>publicKey</label><br/>
-			<input v-model="publicKey"></input><br/>
-			<label>message</label><br/>
-			<textarea v-model="messageText"></textarea><br/>
+			<label>Overlay Address Prefix</label>
+			<input v-model="overlayAddress"></input>
+			<label>Public Key</label>
+			<input v-model="publicKey"></input>
+			<label>Message</label>
+			<textarea v-model="messageText"></textarea>
 			<button v-on:click="sendMessage">Send</button>
 		</div>
 	</div>
 
 	<!-- output -->
-	<div class="show-paste">
-		<h3>Receive</h3>
-		<div>
-		<ul id="receieved-messages">
-			<li v-for="message in messages" :key="messages.message">
+	<div class="receive-message">
+		<h2>Received Messages</h2>
+		<div id="receieved-messages">
+			<div v-for="message in messages" :key="messages.message">
 				{{ message.message }}
-			</li>
-		</ul>
+			</div>
 		</div>
 	</div>
 
 
-	<audio id="bzzAudio">
+	<audio id="bzzAudioSend">
 	  <source src="assets/bzz.mp3" type="audio/mpeg">
+	  Your browser does not support the audio element.
+	</audio>
+
+
+	<audio id="bzzAudioReceive">
+	  <source src="assets/bzzzzzz.mp3" type="audio/mpeg">
 	  Your browser does not support the audio element.
 	</audio>
 </div>
 </body>
 <script src="./assets/axios.min.js"></script>
 <script src="./assets/vue.js"></script>
-<script src="./assets/index.js"></script>
+<script src="./index.js"></script>
 </html>

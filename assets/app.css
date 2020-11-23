@@ -1,13 +1,88 @@
+body, input {
+	font-family: "ibm-plex-mono";
+	background: #242424;
+	color: #dd7200;
+}
+
+h2{
+	margin: 0px 0 15px 0px;
+}
+
+@font-face {
+    font-family: "ibm-plex-mono";
+    src: url("/assets/IBMPlexMono-SemiBold-Latin1.woff") format('woff');
+}
+
 #app{
 	transition: opacity 1s;
 	opacity: 1;
+	margin: 100px;
+}
+
+.send-message, .receive-message{
+	float: left;
+	margin-right: 50px;
+	border: 1px solid #6a6a6a;
+	width: 392px;
+	padding: 10px;
+}
+
+#receieved-messages{
+	border: 1px solid #6a6a6a;
+	padding: 5px;
+	width: 380px;
 }
 
 .loading{
 	opacity: 0 !important;
 }
 
+input, textarea, button{
+	-webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+}
+
+input{
+	background: none;
+
+	border: 1px solid #6a6a6a;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    color: #dd7200;
+    padding: 5px;
+
+    width: 380px;
+}
+
 textarea{
-	width: 400px;
-	height: 400px;
+	display: block;
+	width: 380px;
+	height: 285px;
+	background: none;
+	color: #dd7200;
+	font-size: 25px;
+	padding: 5px;
+}
+
+label {
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+button {
+    float: right;
+    display: block;
+    margin-top: 10px;
+    font-family: 'ibm-plex-mono';
+    background: none;
+    border: 1px solid #dd7200;
+    color: #dd7200;
+    padding: 5px 10px;
+    font-size: 20px;
 }

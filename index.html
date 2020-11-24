@@ -10,7 +10,7 @@
 
 	<!-- input -->
 	<div class="send-message">
-		<h2>Send Message</h2>
+		<h2>Send Message (Bee 1)</h2>
 		<div>
 			<label>Overlay Address Prefix</label>
 			<input v-model="overlayAddress"></input>
@@ -24,9 +24,9 @@
 
 	<!-- output -->
 	<div class="receive-message">
-		<h2>Received Messages</h2>
-		<div id="receieved-messages">
-			<div v-for="message in messages" :key="messages.message">
+		<h2>Received Messages (Bee 2)</h2>
+		<div id="receieved-messages" v-for="message in messages" :key="messages.message">
+			<div class="message">
 				{{ message.message }}
 			</div>
 		</div>

@@ -10,18 +10,22 @@ h2{
 
 @font-face {
     font-family: "ibm-plex-mono";
-    src: url("/assets/IBMPlexMono-SemiBold-Latin1.woff") format('woff');
+    src: url("IBMPlexMono-SemiBold-Latin1.woff") format('woff');
 }
 
 #app{
 	transition: opacity 1s;
-	opacity: 1;
-	margin: 100px;
+    opacity: 1;
+    margin: 68px;
+    margin-right: 0px;
+}
+
+.send-message{
+	margin-right: 50px;
 }
 
 .send-message, .receive-message{
 	float: left;
-	margin-right: 50px;
 	border: 1px solid #6a6a6a;
 	width: 392px;
 	padding: 10px;
@@ -31,6 +35,7 @@ h2{
 	border: 1px solid #6a6a6a;
 	padding: 5px;
 	width: 380px;
+	margin-top: 10px;
 }
 
 .loading{

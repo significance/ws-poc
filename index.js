@@ -1,5 +1,5 @@
-const gatewayHTTP = 'http://localhost:8083';
-const gatewayWS = 'ws://localhost:8082';
+const gatewayHTTP = 'http://localhost:1633';
+const gatewayWS = 'ws://localhost:1733';
 const topic = 'ws-poc';
 
 let listen = (openCallback, messageCallback) => {
@@ -8,7 +8,7 @@ let listen = (openCallback, messageCallback) => {
 
     // Listen for messages
     socket.addEventListener('message', async function (event) {
-        // callback(event.data);
+        console.log(event)
         messageCallback(await event.data.text());
     });
 
@@ -32,7 +32,6 @@ let init = async () => {
         el: '#app',
         data: {
             messages: [
-                {message: 'Welcome'},
             ],
             overlayAddress: "",
             publicKey: "",
@@ -50,9 +49,11 @@ let init = async () => {
     });
 
     listen(console.log, (message) => {
-        var b = document.getElementById("bzzAudioReceive"); 
-        b.play();
-        app.messages.push({message: message});
+        if(message != ""){
+            app.messages.push({message: message});
+            var b = document.getElementById("bzzAudioReceive"); 
+            b.play();
+        }
     });
 
 };
